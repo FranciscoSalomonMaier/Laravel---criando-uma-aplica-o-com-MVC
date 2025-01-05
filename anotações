@@ -35,3 +35,35 @@ Laravel MIX - Aula 06 do Módulo 04
 
 
     "webpack é uma ferramenta que permite que tenhamos um pipeline, uma linha de execução que queiramos fazer no nosso front-end, então vamos pegar um arquivo e mover para outro lugar, vai transpilar um typescript para JavaScript, vai transpilar um SCSS para CSS, então essa pipeline de operações existe e utilizamos o webpack para configurar."
+
+
+
+    ### CURSO #2 ###
+
+    ### Aula 05 Tópico 02. Lapindando aplicação
+    Nós podemos impor restrições nos parâmetros que vamos enviar pelas URLs.
+
+    Por exemplo, para o id sempre ser um número, podemos fazer o seguinte:
+    
+    Route::get('/teste/{id}', …)->whereNumber('id');
+    
+    Dessa forma o Laravel fará uma validação para garantir que o parâmetro id é um número.
+    https://laravel.com/docs/9.x/routing#parameters-regular-expression-constraints
+
+
+
+    ### Aula 05 Tópico 04
+    Se todos os nossos valores forem padrão ou corretamente configurados, podemos usar também o método foreignIdFor (que existe desde o Laravel 8) que recebe por parâmetro o nome da model ao invés do nome da coluna. Um exemplo, nesse nosso caso, seria:
+
+    $table->foreignIdFor(Serie::class)->constrained();
+
+    Nesse caso nós acabaríamos tendo a coluna como serie_id ao invés de series_id. Podemos ainda passar um segundo parâmetro para esse método, ficando:
+
+    $table->foreignIdFor(Serie::class, ‘series_id’)->constrained();
+
+
+    ### Aula 03 Tópico 03
+    
+    Comando que instala um dos debuger's do laravel:
+    composer require barryvdh/laravel-debugbar --dev
+
