@@ -1,0 +1,30 @@
+Usando o framework 
+    Apresentação
+    Projeto inicial do curso
+    Criando séries
+    Mass assignment
+    Agrupando actions
+    Nomenando rotas
+
+Lapidando a aplicação
+    Projeto da aula anterior
+    Excluindo uma série
+    Parâmetros de rota
+    Para saber mais: restrições
+    Session e Flash Messages
+    Mais dados da requisição
+    Redirecionamentos
+    Editando nome
+    Para saber mais: with
+
+Validando os dados
+    Processo de validação
+    Validação falhando
+    Exibindo erros
+    Para saber mais: MessageBag
+    Extraindo um FormRequest
+
+Relacionamentos
+    Temporadas e episódios
+    Relacionamentos
+    Migrations
