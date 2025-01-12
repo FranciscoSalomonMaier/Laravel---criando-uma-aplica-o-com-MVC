@@ -1,0 +1,39 @@
+Transações
+    Apresentação
+    DB::transaction
+    Rollback
+    Sintaxe alternativa
+    
+Injeção de dependência
+    Criando um repositório
+    Para saber mais: PHP 8
+    Extraindo uma interface
+    Interface
+    Service Container e Providers
+    Para saber mais: Container de injeção de dependência
+
+Assistindo episódios
+    Listando episódios
+    Para saber mais: Casts
+    Criando a Migration
+    Salvando no banco
+    Arrow function
+    Informando o usuário
+    Problema do N + 1
+
+Autenticação
+    Middlewares
+    Funcionalidade
+    Criando rota de login
+    Para saber mais: detalhes
+    Registrando usuários
+    Confirmação de senha
+    Logout
+
+Verificações do usuário
+    Botões corretos
+    Aplicando o Middleware
+    Formas de utilizar
+    Breeze
+    Faça como eu fiz
+    Projeto final do curso

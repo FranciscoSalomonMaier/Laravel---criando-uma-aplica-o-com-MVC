@@ -1,69 +1,54 @@
+Curso 3
 
-Laravel MIX - Aula 06 do Módulo 04
-    É um pacote JavaScript utilizado pelo Laravel para gerenciar as dependências
-    relacionadas ao frontend.
-    É necessário instalar o Nodejs, pois o Laravel MIX faz uso do npm.
-    Vale ressaltar que o MIX foi substituído por outra ferramenta, o Vite. Claro que ainda é 
-    possível fazer uso dele.
-
-    Para instalar o Laravel MIX no programa, é necessário usar o comando de instalação do node dentro da pasta do projeto:
-    
-    npm install
-
-    E depois usar o comando para instalar o Laravel MIX:
-
-    npm install laravel-mix --save-dev
-
-    Para instalar o Bootstrap:
-
-    npm install bootstrap
-
-    Após instalar o bootstrap, é necessário gerenciar seus arquivos para efetivamente o use na aplicação.
-    Para tanto, é necessário a criação de um arquivo chamado app.scss, o qual importa a biblioteca do bootstrap:
-
-    @import "~bootstrap/scss/bootstrap";
-
-    Após isso, é necessário configurar o webpack.mix.js. Normalmente é bastante complexa a configuração,
-    no entanto, o Laravel MIX ajuda nesta parte, fazendo uso de atalhos para escrever essa configuração:
-
-    mix
-    .sass('resources/css/app.scss', 'public/css')
-    .js('resources/js/app.js', 'public/js');
+### Aula 06 Tópico 02
+    https://laravel.com/docs/9.x/providers
+    https://laravel.com/docs/9.x/container
 
 
-    Depois, a linha .js('resources/js/app.js', 'public/js'); é removida, pois já são importadas diversas funcionalidades por padrão pelo bootstrap, como o axios e lodash, que esse arquivo, app.js, também está importando, o tornando redundandte.
+### Aula 04 Tópico 03
+
+    Linha de código para criar uma migration relacionada à tabela episodes com o nomes da migration:
+
+        php artisan make:migration --table=episodes add_watched_episodes
 
 
-    "webpack é uma ferramenta que permite que tenhamos um pipeline, uma linha de execução que queiramos fazer no nosso front-end, então vamos pegar um arquivo e mover para outro lugar, vai transpilar um typescript para JavaScript, vai transpilar um SCSS para CSS, então essa pipeline de operações existe e utilizamos o webpack para configurar."
+#Porque as arrow functions retornam o valor da expressão utilizada.
+    Alternativa correta! Toda arrow function no PHP retorna o valor da expressão que nós utilizamos nela. 
+    Isso é um problema porque o método each vai ser interrompido se a função passada pra ele retornar false. 
+    Então quando nós tivéssemos o primeiro episódio que tivesse watched = false, esse valor seria retornado e o loop se encerraria.
+
+### Aula 4 Tópico 04
+
+Auth::attempt() 
+é o método que realiza a verificação se o usuário está logado
+Nós já sabemos que o conceito de Facade é basicamente fornecer acesso simplificado a um subsistema mais complexo. É exatamente isso que a classe Auth nos fornece.
+
+Ao chamar o método Auth::check ela verifica no guard configurado se há algum usuário presente. O guard padrão é session que armazena o usuário em sessão.
+
+Quando chamamos o Auth::attempt passando as credenciais por parâmetro, o que o sistema vai fazer é utilizar o provider de usuários para tentar encontrar o usuário referente as credenciais enviadas. O provider padrão é o Eloquent, ou seja, nós tentamos buscar o usuário no banco de dados.
+
+É possível personalizar isso usando um token ao invés de sessão e buscando o usuário em um servidor LDAP ao invés de usar o Eloquent, mas para este treinamento as opções padrão são perfeitas. :-D
+
+### Aula 07 Tópico 04
+Como nós poderíamos implementar um campo de confirmação de senha?
+Tendo um input chamado password_confirmation e adicionando ao request a validação confirmed no campo password.
+A validação confirmed quando adicionada às regras do nosso request exige que o campo em questão possua também um outro campo chamado {campo}_confirmation com o mesmo valor. 
+https://laravel.com/docs/9.x/validation#rule-confirmed
 
 
-
-    ### CURSO #2 ###
-
-    ### Aula 05 Tópico 02. Lapindando aplicação
-    Nós podemos impor restrições nos parâmetros que vamos enviar pelas URLs.
-
-    Por exemplo, para o id sempre ser um número, podemos fazer o seguinte:
-    
-    Route::get('/teste/{id}', …)->whereNumber('id');
-    
-    Dessa forma o Laravel fará uma validação para garantir que o parâmetro id é um número.
-    https://laravel.com/docs/9.x/routing#parameters-regular-expression-constraints
+### Aula 2 Tópico 05
+Auth::user()
+Retorna o usuário que está autenticado na sessão.
 
 
+### Aula 05 Tópico 05 - Breeze
 
-    ### Aula 05 Tópico 04
-    Se todos os nossos valores forem padrão ou corretamente configurados, podemos usar também o método foreignIdFor (que existe desde o Laravel 8) que recebe por parâmetro o nome da model ao invés do nome da coluna. Um exemplo, nesse nosso caso, seria:
+composer create-project laravel/laravel:^9.0 breeze
 
-    $table->foreignIdFor(Serie::class)->constrained();
+composer require laravel/breeze --dev
 
-    Nesse caso nós acabaríamos tendo a coluna como serie_id ao invés de series_id. Podemos ainda passar um segundo parâmetro para esse método, ficando:
-
-    $table->foreignIdFor(Serie::class, ‘series_id’)->constrained();
-
-
-    ### Aula 03 Tópico 03
-    
-    Comando que instala um dos debuger's do laravel:
-    composer require barryvdh/laravel-debugbar --dev
-
+php artisan breeze:install
+ 
+php artisan migrate
+npm install
+npm run dev

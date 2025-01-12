@@ -1,5 +1,8 @@
 <x-layout title="{{__('messages.app_name')}}">
+    
+    @auth
     <a href="{{ route('series.create') }}" class="btn btn-dark mb-2">Adicionar</a>
+    @endauth
 
     @isset($mensagemSucesso)
     <div class="alert alert-success">
@@ -10,12 +13,13 @@
     <ul class="list-group">
         @foreach($series as $serie)
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="{{ route('seasons.index', $serie->id) }}">
+            @auth <a href="{{ route('seasons.index', $serie->id) }}"> @endauth
                 {{$serie->nome}}
-            </a>
+            @auth </a> @endauth
+            @auth
             <span class='d-flex'>
 
-            @method('GET')
+                @method('GET')
                 <a class="btn btn-warning btn-sm mr-3" href="{{ route('series.edit', $serie->id) }}">
                     Editar
                 </a>
@@ -28,6 +32,7 @@
                     </button>
                 </form>
             </span>
+            @endauth
         </li>
         @endforeach
     </ul>
